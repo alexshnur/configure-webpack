@@ -1,0 +1,9 @@
+{
+	"name": "configure-webpack",
+	"version": "0.0.1",
+	"dependencies": {
+		"@babel/core": "^7.1.2",
+		"babel-loader": "^8.0.4",
+		"webpack": "^4.20.2"
+	}
+}

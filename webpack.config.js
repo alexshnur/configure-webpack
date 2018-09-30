@@ -4,8 +4,7 @@ const extractLESS = new ExtractTextPlugin('css/common.css');
 
 module.exports = {
 	entry: {
-		'js/build.js': './src/app.js',
-		'css/build': './src/less/common.less'
+		'js/build.js': './src/app.js'
 	},
 	module: {
 		rules: [
@@ -43,6 +42,15 @@ module.exports = {
 					}
 				}
 			},
+			{
+				test: /\.(svg|png|jpg|gif|jpeg)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "images/[name].[ext]"
+					}
+				}
+			}
 		]
 	},
 	output: {

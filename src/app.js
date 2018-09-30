@@ -1,1 +1,1 @@
-console.log('Hello webpack!');
+import './less/common.less'

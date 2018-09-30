@@ -1,8 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const extractLESS = new ExtractTextPlugin('css/common.css');
-
 module.exports = {
 	entry: {
 		'js/build.js': './src/app.js'
@@ -21,6 +19,7 @@ module.exports = {
 						{
 							loader: 'css-loader',
 							options: {
+								url: false,
 								minimize: true,
 								sourceMap: true
 							}
@@ -59,7 +58,7 @@ module.exports = {
 		filename: '[name]'
 	},
 	plugins: [
-		extractLESS,
+		new ExtractTextPlugin('css/common.css'),
 		new HtmlWebpackPlugin()
 	]
 };

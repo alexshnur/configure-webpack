@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extractLESS = new ExtractTextPlugin('css/common.css');
 
@@ -59,5 +60,6 @@ module.exports = {
 	},
 	plugins: [
 		extractLESS,
+		new HtmlWebpackPlugin()
 	]
 };

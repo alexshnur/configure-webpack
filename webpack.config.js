@@ -14,9 +14,35 @@ module.exports = {
 				loader: 'babel-loader'
 			},
 			{
-				test: /\.less$/,
-				use: extractLESS.extract(['css-loader', 'less-loader'])
-			}
+				test: /\.(le|c)ss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								minimize: true,
+								sourceMap: true
+							}
+						},
+						{
+							loader: 'less-loader',
+							options: {
+								sourceMap: true
+							}
+						}
+					]
+				})
+			},
+			{
+				test: /\.(woff|woff2|eot|ttf|svg)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "fonts/[name].[ext]"
+					}
+				}
+			},
 		]
 	},
 	output: {
